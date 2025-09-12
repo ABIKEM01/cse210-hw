@@ -1,4 +1,10 @@
+// EXTRA FEATURE FOR CREATIVITY:
+// I extended the Entry class by adding a "Mood" field. 
+// Now, when the user writes in the journal, they can also record 
+// how they are feeling (e.g., happy, stressed, grateful).
+
 using System;
+
 
 class Program
 {
@@ -27,10 +33,14 @@ class Program
                 Console.WriteLine(prompt);
                 string response = Console.ReadLine();
 
+                // Ask the user for their mood and save it in the entry
                 Entry newEntry = new Entry();
                 newEntry._date = DateTime.Now.ToShortDateString();
                 newEntry._prompt = prompt;
                 newEntry._response = response;
+
+                Console.Write("How are you feeling today (mood)? ");
+                newEntry._mood = Console.ReadLine(); 
 
                 myJournal.AddEntry(newEntry);
             }
